@@ -10,7 +10,6 @@ public class Test {
     @BeforeClass
     public static void beforeClass(){
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Alex\\Downloads\\geckodriver.exe");
-        // Initialize ChromeDriver
         driver = new FirefoxDriver();
 
     }
@@ -40,12 +39,9 @@ public class Test {
     public void emptyUsername() throws Exception{
 
         Thread.sleep(1000);
-//        WebElement username=driver.findElement(By.name("username"));
+
         WebElement password=driver.findElement(By.name("password"));
         Thread.sleep(1000);
-
-//        username.sendKeys("salam");
-//        Thread.sleep(1000);
 
         password.sendKeys("salam");
         Thread.sleep(1000);
@@ -62,14 +58,13 @@ public class Test {
     public void emptyPassword() throws Exception{
         Thread.sleep(1000);
         WebElement username=driver.findElement(By.name("username"));
-//        WebElement password=driver.findElement(By.name("password"));
+
         Thread.sleep(1000);
 
         username.sendKeys("salam");
         Thread.sleep(1000);
 
-//        password.sendKeys("salam");
-//        Thread.sleep(1000);
+
 
         username.submit();
         Thread.sleep(1000);
@@ -79,7 +74,7 @@ public class Test {
         Assert.assertEquals("Please enter a username and password.", error.getText());
     }
     @org.junit.Test
-    public void wrongCredentials() throws Exception{
+    public void wrong_redentials() throws Exception{
         Thread.sleep(1000);
         WebElement username=driver.findElement(By.xpath("//*[@id=\"loginPanel\"]/form/div[1]/input"));
         WebElement password=driver.findElement(By.xpath("//*[@id=\"loginPanel\"]/form/div[2]/input"));
@@ -136,7 +131,7 @@ public class Test {
         Assert.assertEquals("https://www.parasoft.com/solutions/", driver.getCurrentUrl());
     }
     @org.junit.Test
-    public void transferLoan() throws Exception{
+    public void transfer_loan() throws Exception{
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/ul[1]/li[3]/a")).click();
         Assert.assertSame("https://parabank.parasoft.com/parabank/services/ParaBank?wsdl", driver.getCurrentUrl());
